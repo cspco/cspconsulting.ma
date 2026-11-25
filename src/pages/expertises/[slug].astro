@@ -1,0 +1,72 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import Icon from '../../components/Icon.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { expertises, getExpertise, type Expertise } from '../../data/expertises';
+import { url } from '../../lib/url';
+
+export function getStaticPaths() {
+  return expertises.map((e) => ({ params: { slug: e.slug }, props: { e } }));
+}
+const { e } = Astro.props as { e: Expertise };
+const photos = import.meta.glob<{ default: ImageMetadata }>('../../assets/photos/*.jpg', { eager: true });
+const photo = photos[`../../assets/photos/${e.photo}.jpg`].default;
+const related = e.related.map(getExpertise).filter(Boolean) as Expertise[];
+---
+<Base title={e.short} description={`${e.summary} CSP Consulting, Tanger.`} image={photo.src}>
+  <PageHero title={e.title} eyebrow="Expertise" lead={e.intro} photo={photo} crumbs={[{ label: 'Expertises', href: '/expertises' }, { label: e.short }]}>
+    <div class="actions hero-actions">
+      <a class="btn btn--cta" href={url(`/devis?besoin=${encodeURIComponent(e.short)}`)}>Demander un devis</a>
+    </div>
+  </PageHero>
+
+  <section class="section">
+    <div class="container">
+      <h2>{e.sectionsTitle}</h2>
+      <div class="blocks">
+        {e.blocks.map((b) => (
+          <article class="block">
+            <h3>{b.title}</h3>
+            {b.text && <p>{b.text}</p>}
+            {b.items && <ul class="check-list">{b.items.map((i) => <li>{i}</li>)}</ul>}
+            {b.terms && (
+              <dl class="terms">
+                {b.terms.map((t) => <div><dt>{t.term}</dt><dd>{t.definition}</dd></div>)}
+              </dl>
+            )}
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="container">
+      <h2>Expertises associées</h2>
+      <div class="grid grid--3">
+        {related.map((r) => (
+          <a class="card" href={url(`/expertises/${r.slug}`)}>
+            <span class="icon-badge"><Icon name={r.icon} /></span>
+            <h3>{r.short}</h3>
+            <p>{r.summary}</p>
+            <span class="card__more">En savoir plus <Icon name="arrow-right" /></span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+  <CtaBand />
+</Base>
+
+<style>
+  .hero-actions { margin-top: 1.5rem; }
+  .blocks { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); margin-top: 1.5rem; }
+  .block { border: 1px solid var(--line); border-top: 3px solid var(--brand); border-radius: var(--radius); padding: 1.5rem; background: #fff; }
+  .block h3 { margin-bottom: 0.75rem; }
+  .block p { color: var(--ink-2); }
+  .terms { display: grid; gap: 0.4rem; margin: 0; }
+  .terms div { display: grid; grid-template-columns: 4rem 1fr; gap: 0.75rem; }
+  .terms dt { font-weight: 700; color: var(--brand); font-variant-numeric: tabular-nums; }
+  .terms dd { margin: 0; }
+</style>

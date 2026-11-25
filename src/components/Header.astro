@@ -1,0 +1,82 @@
+---
+import Logo from './Logo.astro';
+import Icon from './Icon.astro';
+import { nav, site } from '../data/site';
+import { url } from '../lib/url';
+const path = Astro.url.pathname.replace(import.meta.env.BASE_URL.replace(/\/$/, ''), '') || '/';
+const isActive = (href: string) => path === href || path.startsWith(href + '/');
+---
+<header class="site-header">
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <a href={site.phone.href}><Icon name="phone" />{site.phone.display}</a>
+      <a href={`mailto:${site.email}`}><Icon name="mail" />{site.email}</a>
+      <span class="topbar__hours"><Icon name="clock" />{site.hours}</span>
+    </div>
+  </div>
+  <div class="container header__inner">
+    <a href={url('/')} class="header__logo" aria-label="CSP Consulting – accueil"><Logo /></a>
+    <nav class="nav" aria-label="Navigation principale">
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-list">
+        <Icon name="menu" /><span>Menu</span>
+      </button>
+      <ul id="nav-list" class="nav__list">
+        {nav.map((item) => (
+          <li><a href={url(item.href)} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a></li>
+        ))}
+        <li class="nav__cta"><a class="btn btn--cta" href={url('/devis')}>Demander un devis</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('.nav__toggle');
+  const list = document.getElementById('nav-list');
+  toggle?.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!open));
+    list?.classList.toggle('is-open', !open);
+  });
+</script>
+
+<style>
+  .site-header { position: sticky; top: 0; z-index: 50; background: #fff; border-bottom: 1px solid var(--line); }
+  .site-header::before { content: ''; display: block; height: 4px; background: var(--spectrum); }
+  .topbar { background: var(--ink); color: #cfd8e0; font-size: 0.9rem; }
+  .topbar__inner { display: flex; flex-wrap: wrap; gap: 0.4rem 1.5rem; padding-block: 0.4rem; }
+  .topbar a, .topbar span { color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; }
+  .topbar a:hover { color: #fff; }
+  .topbar :global(svg) { width: 15px; height: 15px; }
+  .header__inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 0.85rem; }
+  .header__logo { flex: none; }
+  .nav__list { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; gap: 0.25rem; }
+  .nav__list a:not(.btn) {
+    display: block; padding: 0.55rem 0.8rem; color: var(--ink); text-decoration: none;
+    font-weight: 600; border-radius: var(--radius);
+  }
+  .nav__list a:not(.btn):hover { background: var(--paper-2); }
+  .nav__list a[aria-current='page'] { color: var(--brand); box-shadow: inset 0 -3px 0 var(--brand); border-radius: 0; }
+  .nav__cta { margin-left: 0.75rem; }
+  .nav__toggle { display: none; }
+
+  @media (max-width: 960px) {
+    .topbar__hours { display: none; }
+    .nav__toggle {
+      display: inline-flex; align-items: center; gap: 0.4rem; font: 600 1rem var(--f-body);
+      background: none; border: 1px solid var(--line); border-radius: var(--radius); padding: 0.5rem 0.8rem; color: var(--ink); cursor: pointer;
+    }
+    .nav__toggle :global(svg) { width: 20px; height: 20px; }
+    .nav__list {
+      display: none; position: absolute; left: 0; right: 0; top: 100%;
+      flex-direction: column; align-items: stretch; gap: 0; background: #fff;
+      border-bottom: 1px solid var(--line); padding: 0.5rem var(--gutter) 1rem; box-shadow: var(--shadow);
+    }
+    .nav__list.is-open { display: flex; }
+    .nav__list a:not(.btn) { padding: 0.85rem 0.25rem; border-bottom: 1px solid var(--line); border-radius: 0; }
+    .nav__list a[aria-current='page'] { box-shadow: inset 3px 0 0 var(--brand); padding-left: 0.75rem; }
+    .nav__cta { margin: 1rem 0 0; }
+    .nav__cta .btn { width: 100%; justify-content: center; }
+  }
+  @media (max-width: 560px) { .topbar a:nth-child(2) { display: none; } }
+</style>

@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro';
+import { url } from '../lib/url';
+---
+<Base title="Page introuvable" description="La page demandée n’existe pas ou a été déplacée." noindex>
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">Erreur 404</p>
+      <h1>Cette page n’existe pas ou a été déplacée</h1>
+      <p>Notre site a été entièrement refait : l’adresse que vous avez suivie n’est peut-être plus valable.</p>
+      <div class="actions">
+        <a class="btn btn--primary" href={url('/')}>Retour à l’accueil</a>
+        <a class="btn btn--ghost" href={url('/expertises')}>Nos expertises</a>
+        <a class="btn btn--ghost" href={url('/produits')}>Nos produits</a>
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,51 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import { site } from '../data/site';
+import { url } from '../lib/url';
+const L = site.legal;
+---
+<Base title="Mentions légales" description="Mentions légales et conditions d’utilisation du site cspconsulting.ma.">
+  <PageHero title="Mentions légales" crumbs={[{ label: 'Mentions légales' }]} />
+  <section class="section">
+    <div class="container prose">
+      <h2>Éditeur du site</h2>
+      <p>
+        Le site cspconsulting.ma est édité par <strong>{L.companyName}</strong>, {L.legalForm} au capital de {L.capital},
+        dont le siège social est situé {site.address.lines.join(', ')}, {site.address.postalCode} {site.address.city}, {site.address.country}.
+      </p>
+      <ul>
+        <li>Registre du commerce : {L.rc}</li>
+        <li>ICE : {L.ice}</li>
+        <li>Identifiant fiscal : {L.if}</li>
+        <li>Téléphone : {site.phone.display}</li>
+        <li>E-mail : <a href={`mailto:${site.email}`}>{site.email}</a></li>
+        <li>Directeur de la publication : {L.publicationDirector}</li>
+      </ul>
+
+      <h2>Hébergement</h2>
+      <p>{L.host}</p>
+
+      <h2>Accès au site</h2>
+      <p>Le site est accessible gratuitement à tout utilisateur disposant d’un accès à Internet. L’éditeur peut interrompre ou suspendre l’accès au site, notamment pour des opérations de maintenance, sans préavis.</p>
+
+      <h2>Responsabilité</h2>
+      <p>Les informations publiées sur le site sont fournies à titre indicatif et sont réputées fiables. L’éditeur ne saurait être tenu responsable d’une erreur, d’une omission ou de l’indisponibilité du site.</p>
+      <p>Les caractéristiques des produits présentées sont celles communiquées par les fabricants ; seule une proposition commerciale de CSP Consulting fait foi.</p>
+
+      <h2>Propriété intellectuelle</h2>
+      <p>Les contenus du site (textes, logos, éléments graphiques) sont protégés par le droit d’auteur. Toute reproduction sans autorisation préalable de l’éditeur est interdite.</p>
+      <p>Les photographies de produits restent la propriété exclusive de leurs auteurs et fabricants. Elles sont utilisées uniquement pour illustrer les produits commercialisés par CSP Consulting.</p>
+
+      <h2>Données personnelles</h2>
+      <p>Le traitement des données collectées via les formulaires du site est décrit dans notre <a href={url('/politique-de-confidentialite')}>politique de confidentialité</a>.</p>
+
+      <h2>Liens hypertextes</h2>
+      <p>Les sites vers lesquels pointent les liens présents sur cspconsulting.ma n’engagent pas la responsabilité de l’éditeur, qui n’a aucun contrôle sur leur contenu.</p>
+
+      <h2>Droit applicable</h2>
+      <p>Le présent site est soumis au droit marocain. En cas de litige non résolu à l’amiable, les tribunaux de Tanger sont seuls compétents.</p>
+    </div>
+  </section>
+</Base>
+<style>.prose { max-width: 820px; }</style>

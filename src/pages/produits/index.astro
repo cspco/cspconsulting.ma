@@ -1,0 +1,43 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import Icon from '../../components/Icon.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { categories, productsIn, subcategoriesIn } from '../../data/catalog';
+import { url } from '../../lib/url';
+---
+<Base title="Produits de protection antichute" description="Lignes de vie, ancrages, antichutes à rappel automatique, dispositifs de sauvetage, filets et passerelles : les solutions de protection contre les chutes de hauteur proposées et installées par CSP Consulting.">
+  <PageHero
+    title="Produits de protection antichute"
+    lead="Étude, fourniture, installation, maintenance et vérification de dispositifs d’ancrage et d’équipements antichute, permanents ou temporaires, horizontaux ou verticaux."
+    crumbs={[{ label: 'Produits' }]}
+  >
+    <div class="actions"><a class="btn btn--cta" href={url('/devis?besoin=Produits%20et%20installations%20antichute')}>Demander un devis</a></div>
+  </PageHero>
+
+  {categories.map((c) => (
+    <section class="section cat" id={c.slug}>
+      <div class="container">
+        <div class="cat__head">
+          <div>
+            <h2>{c.title}</h2>
+            <p>{c.summary}</p>
+            <p class="cat__subs">{subcategoriesIn(c.slug).join(' · ')}</p>
+          </div>
+          <a class="btn btn--ghost" href={url(`/produits/${c.slug}`)}>Voir les {productsIn(c.slug).length} produits <Icon name="arrow-right" /></a>
+        </div>
+        <div class="grid grid--4">
+          {productsIn(c.slug).slice(0, 4).map((p) => <ProductCard p={p} />)}
+        </div>
+      </div>
+    </section>
+  ))}
+  <CtaBand title="Besoin d’une étude pour vos travaux en hauteur ?" text="Nous dimensionnons la solution adaptée à votre site, la fournissons, l’installons et en assurons la vérification." />
+</Base>
+<style>
+  .cat + .cat { padding-top: 0; }
+  .cat__head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 1rem; margin-bottom: 1.5rem; }
+  .cat__head p { margin: 0 0 0.4rem; color: var(--muted); }
+  .cat__subs { font-size: 0.95rem; font-weight: 600; color: var(--ink-2) !important; }
+</style>

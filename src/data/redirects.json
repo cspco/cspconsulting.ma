@@ -1,0 +1,44 @@
+{
+  "_comment": "Permanent (301) redirects from the old site's URLs. Query-string rules match the old product URLs.",
+  "paths": {
+    "/index.php": "/",
+    "/index.html": "/",
+    "/contact.php": "/contact",
+    "/contact-us.php": "/contact",
+    "/contacs.php": "/contact",
+    "/systeme-management.php": "/expertises/systemes-de-management",
+    "/audit.php": "/expertises/audits-conformite",
+    "/ingenierie.php": "/expertises/ingenierie",
+    "/construction.php": "/expertises/construction-infrastructures",
+    "/prevention-incendie.php": "/expertises/prevention-incendie",
+    "/risques-industriel.php": "/expertises/risques-industriels",
+    "/qhse.php": "/expertises/formations-qhse",
+    "/services.php": "/expertises",
+    "/propos.php": "/a-propos",
+    "/about-us.php": "/a-propos",
+    "/about-us.html": "/a-propos",
+    "/careers.php": "/a-propos",
+    "/documentation.php": "/a-propos",
+    "/providers.php": "/produits",
+    "/regwatch.php": "/regwatch",
+    "/terms-conditions.php": "/mentions-legales",
+    "/produits/index.php": "/produits",
+    "/produits/contact.php": "/contact",
+    "/produits/prevention-incendie.php": "/expertises/prevention-incendie",
+    "/produits/protection-individuelle.php": "/produits/protection-individuelle",
+    "/produits/protection-collective.php": "/produits/protection-collective",
+    "/produits/dispositifs-ancrage.php": "/produits/dispositifs-ancrage",
+    "/EN/": "/",
+    "/EN/fire-Prevention.php": "/"
+  },
+  "prefixes": {
+    "/provider/": "/produits",
+    "/EN/": "/"
+  },
+  "productQuery": {
+    "PROTECTION INDIVIDUELLE": "/produits/protection-individuelle",
+    "PROTECTION COLLECTIVE": "/produits/protection-collective",
+    "DISPOSITIFS D`ANCRAGE": "/produits/dispositifs-ancrage",
+    "*": "/produits"
+  }
+}

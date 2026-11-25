@@ -1,0 +1,180 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { site, keyFigures, accreditations, clients, partners } from '../data/site';
+import { expertises } from '../data/expertises';
+import { categories, productsIn } from '../data/catalog';
+import { url } from '../lib/url';
+import hero from '../assets/photos/hero-chantier.jpg';
+import regwatchShot from '../assets/regwatch/dashboard.jpg';
+
+const logos = import.meta.glob<{ default: ImageMetadata }>('../assets/{clients,partners}/*.jpg', { eager: true });
+const logo = (dir: string, name: string) => logos[`../assets/${dir}/${name}.jpg`].default;
+---
+<Base title={site.name} description={site.description} image={hero.src}>
+  <section class="hero">
+    <Image src={hero} alt="" class="hero__img" widths={[640, 1024, 1600, 1920]} sizes="100vw" loading="eager" fetchpriority="high" />
+    <div class="container hero__inner">
+      <p class="eyebrow">Ingénierie et conseil QHSE · Tanger</p>
+      <h1>Votre partenaire pour des sites plus sûrs, conformes et performants</h1>
+      <p class="hero__lead">
+        Depuis {site.founded}, CSP Consulting accompagne industriels et maîtres d’ouvrage au Maroc et en Afrique de l’Ouest :
+        systèmes de management, audits de conformité réglementaire, prévention des risques, formations et protection antichute.
+      </p>
+      <div class="actions">
+        <a class="btn btn--cta" href={url('/devis')}>Demander un devis</a>
+        <a class="btn btn--light" href={url('/expertises')}>Découvrir nos expertises <Icon name="arrow-right" /></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="figures" aria-label="Chiffres clés">
+    <div class="container">
+      <ul class="figures__list">
+        {keyFigures.map((f) => <li><strong>{f.value}</strong><span>{f.label}</span></li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="expertises">
+    <div class="container">
+      <div class="section__head">
+        <p class="eyebrow">Nos expertises</p>
+        <h2>Sept domaines d’intervention, une même exigence</h2>
+        <p>De l’étude à la mise en œuvre sur le terrain, nous intervenons sur l’ensemble des volets qualité, santé, sécurité et environnement de vos projets.</p>
+      </div>
+      <div class="grid grid--3">
+        {expertises.map((e) => (
+          <a class="card" href={url(`/expertises/${e.slug}`)}>
+            <span class="icon-badge"><Icon name={e.icon} /></span>
+            <h3>{e.short}</h3>
+            <p>{e.summary}</p>
+            <span class="card__more">En savoir plus <Icon name="arrow-right" /></span>
+          </a>
+        ))}
+        <a class="card card--accent" href={url('/devis')}>
+          <span class="icon-badge"><Icon name="file-text" /></span>
+          <h3>Un besoin spécifique ?</h3>
+          <p>Expliquez-nous votre projet : nous construisons une intervention sur mesure.</p>
+          <span class="card__more">Nous consulter <Icon name="arrow-right" /></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="container split">
+      <div>
+        <p class="eyebrow">Protection antichute</p>
+        <h2>Étude, fourniture, installation et vérification de vos dispositifs d’ancrage</h2>
+        <p>
+          Lignes de vie permanentes et temporaires, horizontales et verticales : nous concevons et installons des solutions
+          de protection contre les chutes de hauteur, avec les équipements de fabricants reconnus.
+        </p>
+        <ul class="check-list">
+          {categories.map((c) => (
+            <li><a href={url(`/produits/${c.slug}`)}>{c.title}</a> – {productsIn(c.slug).length} produits</li>
+          ))}
+        </ul>
+        <p class="spacer"></p>
+        <a class="btn btn--primary" href={url('/produits')}>Voir le catalogue <Icon name="arrow-right" /></a>
+      </div>
+      <div>
+        <h3 class="small-title">Marques représentées</h3>
+        <ul class="logo-grid logo-grid--partners">
+          {partners.map((p) => (
+            <li><Image src={logo('partners', p.logo)} alt={p.name} width={180} densities={[1, 2]} /></li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split split--reverse">
+      <div>
+        <p class="eyebrow">Solution digitale</p>
+        <h2>RegWatch : votre veille et votre conformité réglementaire, au même endroit</h2>
+        <p>
+          Suivez vos exigences légales en santé, sécurité et environnement, évaluez votre taux de conformité et pilotez
+          vos plans d’actions depuis un tableau de bord accessible sur ordinateur et mobile.
+        </p>
+        <div class="actions">
+          <a class="btn btn--primary" href={url('/regwatch')}>Découvrir RegWatch</a>
+        </div>
+      </div>
+      <figure class="shot">
+        <Image src={regwatchShot} alt="Tableau de bord RegWatch : taux de conformité et répartition par famille d’exigences" widths={[480, 800, 1200]} sizes="(max-width: 900px) 100vw, 560px" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="container">
+      <div class="section__head">
+        <p class="eyebrow">Agréments et certifications</p>
+        <h2>Des compétences reconnues</h2>
+      </div>
+      <ul class="accred">
+        {accreditations.map((a) => (
+          <li><Icon name="award" /><span><small>{a.kind}</small>{a.title}</span></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <p class="eyebrow">Références</p>
+        <h2>Ils nous ont fait confiance</h2>
+      </div>
+      <ul class="logo-grid">
+        {clients.map((c) => (
+          <li><Image src={logo('clients', c.logo)} alt={c.name} width={200} densities={[1, 2]} /></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <CtaBand />
+</Base>
+
+<style>
+  .hero { position: relative; background: var(--ink); color: #dfe6ec; overflow: hidden; }
+  .hero__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; max-width: none; }
+  .hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(100deg, rgb(20 32 44 / 92%) 0%, rgb(20 32 44 / 75%) 45%, rgb(20 32 44 / 25%) 100%); }
+  .hero__inner { position: relative; z-index: 1; padding-block: clamp(4rem, 11vw, 8rem); }
+  .hero h1 { color: #fff; max-width: 18ch; }
+  .hero__lead { font-size: var(--step-1); max-width: 42rem; margin-bottom: 2rem; }
+  .hero :global(.eyebrow) { color: #9fd0ee; }
+
+  .figures { background: var(--paper); border-bottom: 1px solid var(--line); }
+  .figures__list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr)); }
+  .figures__list li { padding: 1.75rem 1rem 1.5rem; border-left: 1px solid var(--line); display: grid; gap: 0.25rem; }
+  .figures__list li:first-child { border-left: 0; }
+  .figures strong { font: 800 var(--step-3)/1 var(--f-display); color: var(--ink); font-variant-numeric: tabular-nums; }
+  .figures span { font-size: 0.95rem; color: var(--muted); line-height: 1.35; }
+  @media (max-width: 700px) { .figures__list li { border-left: 0; border-top: 1px solid var(--line); } .figures__list li:first-child { border-top: 0; } }
+
+  .card--accent { background: var(--brand-soft); border-color: transparent; }
+  .split { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+  @media (max-width: 900px) { .split { grid-template-columns: 1fr; } }
+  .split .check-list a { font-weight: 600; }
+  .spacer { margin: 0 0 1.25rem; }
+  .small-title { font-size: var(--step-0); text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+
+  .logo-grid { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+  .logo-grid li { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); display: grid; place-items: center; padding: 0.75rem; aspect-ratio: 16 / 9; }
+  .logo-grid :global(img) { max-height: 100%; width: auto; object-fit: contain; filter: grayscale(1); opacity: 0.85; transition: filter 0.2s, opacity 0.2s; }
+  .logo-grid li:hover :global(img) { filter: none; opacity: 1; }
+  .logo-grid--partners :global(img) { filter: none; opacity: 1; }
+
+  .shot { margin: 0; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--line); }
+  .accred { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); }
+  .accred li { display: flex; gap: 0.75rem; align-items: flex-start; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 1rem; color: var(--ink); font-weight: 600; line-height: 1.35; }
+  .accred small { display: block; font-weight: 600; color: var(--brand); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.75rem; margin-bottom: 0.2rem; }
+  .accred :global(svg) { width: 22px; height: 22px; flex: none; color: var(--brand); }
+</style>

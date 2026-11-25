@@ -1,0 +1,13 @@
+---
+/** Inline Lucide icon (https://lucide.dev, ISC licence). */
+interface Props { name: string; class?: string; label?: string }
+const { name, class: cls, label } = Astro.props;
+const icons = import.meta.glob<string>('/node_modules/lucide-static/icons/*.svg', { query: '?raw', import: 'default', eager: true });
+const raw = icons[`/node_modules/lucide-static/icons/${name}.svg`];
+if (!raw) throw new Error(`Unknown icon: ${name}`);
+const svg = raw
+  .replace(/<!--.*?-->/s, '')
+  .replace(/class="[^"]*"/, `class="icon ${cls ?? ''}"`)
+  .replace('<svg', label ? `<svg role="img" aria-label="${label}"` : '<svg aria-hidden="true" focusable="false"');
+---
+<Fragment set:html={svg} />

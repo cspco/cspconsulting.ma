@@ -1,0 +1,7 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/brand/logo-csp.jpg';
+interface Props { width?: number }
+const { width = 190 } = Astro.props;
+---
+<Image src={logo} alt="CSP Consulting – Committed to Sustainable Performance" width={width} densities={[1, 2]} loading="eager" />

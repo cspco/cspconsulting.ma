@@ -1,0 +1,98 @@
+---
+import { site } from '../data/site';
+import { expertises } from '../data/expertises';
+import { url } from '../lib/url';
+interface Props { id?: string }
+const { id = 'devis-form' } = Astro.props;
+const needs = [...expertises.map((e) => e.short), 'Produits et installations antichute', 'RegWatch (veille réglementaire)', 'Autre demande'];
+---
+<form class="form" id={id} method="post" action={site.formEndpoint || undefined} data-fallback-email={site.email} novalidate>
+  <div class="form__row">
+    <div class="field">
+      <label for={`${id}-name`}>Nom et prénom</label>
+      <input id={`${id}-name`} name="nom" autocomplete="name" required />
+    </div>
+    <div class="field">
+      <label for={`${id}-company`}>Entreprise <span class="hint">(facultatif)</span></label>
+      <input id={`${id}-company`} name="entreprise" autocomplete="organization" />
+    </div>
+  </div>
+  <div class="form__row">
+    <div class="field">
+      <label for={`${id}-email`}>E-mail</label>
+      <input id={`${id}-email`} name="email" type="email" autocomplete="email" required />
+    </div>
+    <div class="field">
+      <label for={`${id}-phone`}>Téléphone <span class="hint">(facultatif)</span></label>
+      <input id={`${id}-phone`} name="telephone" type="tel" autocomplete="tel" placeholder="+212 6 00 00 00 00" />
+    </div>
+  </div>
+  <div class="field">
+    <label for={`${id}-need`}>Votre besoin</label>
+    <select id={`${id}-need`} name="besoin" required>
+      <option value="">Choisissez un domaine</option>
+      {needs.map((n) => <option>{n}</option>)}
+    </select>
+  </div>
+  <div class="field">
+    <label for={`${id}-message`}>Votre message</label>
+    <textarea id={`${id}-message`} name="message" required placeholder="Site concerné, délais, effectif à former, produits souhaités…"></textarea>
+  </div>
+  <div class="hp" aria-hidden="true">
+    <label for={`${id}-website`}>Ne pas remplir</label>
+    <input id={`${id}-website`} name="website" tabindex="-1" autocomplete="off" />
+  </div>
+  <label class="consent">
+    <input type="checkbox" name="consentement" required />
+    <span>J’accepte que mes données soient utilisées pour traiter ma demande, conformément à la <a href={url('/politique-de-confidentialite')}>politique de confidentialité</a> (loi 09-08).</span>
+  </label>
+  <div><button class="btn btn--cta" type="submit">Envoyer ma demande</button></div>
+  <p class="form__status" role="status" aria-live="polite"></p>
+</form>
+
+<script>
+  document.querySelectorAll<HTMLFormElement>('form[data-fallback-email]').forEach((form) => {
+    const status = form.querySelector<HTMLElement>('.form__status')!;
+    // Pre-select a product or need passed in the URL (?produit=… or ?besoin=…).
+    const params = new URLSearchParams(location.search);
+    const product = params.get('produit');
+    const need = params.get('besoin');
+    const message = form.querySelector<HTMLTextAreaElement>('textarea[name="message"]');
+    const select = form.querySelector<HTMLSelectElement>('select[name="besoin"]');
+    if (product && message && !message.value) {
+      message.value = `Je souhaite recevoir un devis pour : ${product}\n`;
+      if (select) select.value = 'Produits et installations antichute';
+    }
+    if (need && select) select.value = need;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        status.textContent = 'Merci de compléter les champs obligatoires.';
+        return;
+      }
+      const data = new FormData(form);
+      if (data.get('website')) return; // spam trap
+      const action = form.getAttribute('action');
+      if (!action) {
+        const body = [...data.entries()]
+          .filter(([k]) => !['website', 'consentement'].includes(k))
+          .map(([k, v]) => `${k} : ${v}`)
+          .join('\n');
+        location.href = `mailto:${form.dataset.fallbackEmail}?subject=${encodeURIComponent('Demande depuis le site – ' + (data.get('besoin') || ''))}&body=${encodeURIComponent(body)}`;
+        status.textContent = 'Votre messagerie va s’ouvrir avec votre demande pré-remplie.';
+        return;
+      }
+      status.textContent = 'Envoi en cours…';
+      try {
+        const res = await fetch(action, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+        if (!res.ok) throw new Error(String(res.status));
+        form.reset();
+        status.textContent = 'Merci, votre demande a bien été envoyée. Nous revenons vers vous rapidement.';
+      } catch {
+        status.textContent = `L’envoi a échoué. Écrivez-nous directement à ${form.dataset.fallbackEmail}.`;
+      }
+    });
+  });
+</script>

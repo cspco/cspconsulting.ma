@@ -1,0 +1,127 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import Icon from '../components/Icon.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { site, accreditations, clients, partners } from '../data/site';
+import { url } from '../lib/url';
+
+const logos = import.meta.glob<{ default: ImageMetadata }>('../assets/{clients,partners,equipment}/*.jpg', { eager: true });
+const logo = (dir: string, name: string) => logos[`../assets/${dir}/${name}.jpg`].default;
+const timeline = [
+  { year: '1999', text: 'Débuts comme ingénieur en production, maintenance, qualité et développement.' },
+  { year: '2005', text: 'Lafarge Maroc : industrie lourde et process à feu continu, pilotage de projets d’investissement, facility management et gestion des risques industriels.' },
+  { year: '2008', text: 'Bureau Veritas Maroc : key account manager, formateur, auditeur et chef de projet pour des études de risques professionnels.' },
+  { year: '2010', text: 'Construction de la phase 1 de l’usine Renault Tanger Méditerranée, au sein de l’équipe Assystem Maroc chargée de l’assistance technique au maître d’ouvrage.' },
+  { year: '2014', text: 'Création de CSP Consulting : ingénierie, audits de systèmes de management QHSE, audits de conformité réglementaire, formations QHSE et risques industriels.' },
+];
+const equipment = [
+  { name: 'Matam', logo: 'matam' },
+  { name: 'Dillon', logo: 'dillon' },
+  { name: 'Bosch', logo: 'bosch' },
+  { name: 'Accud', logo: 'accud' },
+];
+---
+<Base title="À propos" description={`CSP Consulting, cabinet d’ingénierie et de conseil QHSE créé à Tanger en ${site.founded} : mot de la direction, parcours, agréments, moyens et références.`}>
+  <PageHero title="À propos de CSP Consulting" lead="Un cabinet d’ingénierie et de conseil né d’une longue expérience au sein de grands groupes marocains et internationaux." crumbs={[{ label: 'À propos' }]}>
+    <nav class="subnav" aria-label="Sections de la page">
+      <a href="#direction">Mot de la direction</a><a href="#parcours">Parcours</a><a href="#agrements">Agréments</a><a href="#moyens">Moyens</a><a href="#references">Références</a>
+    </nav>
+  </PageHero>
+
+  <section class="section" id="direction">
+    <div class="container narrow">
+      <p class="eyebrow">Mot de la direction</p>
+      <h2>Rehausser durablement la performance QHSE de nos clients</h2>
+      <p>CSP Consulting est le fruit d’une longue et riche expérience professionnelle au sein de grands groupes marocains et internationaux.</p>
+      <p>Depuis sa création en {site.founded}, nous avons choisi d’accompagner des clients exigeants et ambitieux, qui veulent rehausser le niveau de leurs performances et de leurs résultats en qualité, hygiène, sécurité et environnement.</p>
+      <p>Notre maîtrise opérationnelle et notre connaissance des exigences réglementaires font de nous un référent sur le marché pour les prestations que nous réalisons.</p>
+      <p>CSP Consulting met à votre disposition son savoir-faire, son retour d’expérience et les solutions innovantes de ses partenaires, afin de vous aider à atteindre vos objectifs.</p>
+      <p class="signature">La Direction générale</p>
+    </div>
+  </section>
+
+  <section class="section section--tint" id="parcours">
+    <div class="container narrow">
+      <p class="eyebrow">Parcours</p>
+      <h2>Plus de 25 ans d’expérience terrain</h2>
+      <ol class="timeline">
+        {timeline.map((t) => <li><span class="timeline__year">{t.year}</span><p>{t.text}</p></li>)}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="agrements">
+    <div class="container">
+      <p class="eyebrow">Agréments et certifications</p>
+      <h2>Des compétences reconnues</h2>
+      <ul class="accred">
+        {accreditations.map((a) => <li><Icon name="award" /><span><small>{a.kind}</small>{a.title}</span></li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--tint" id="moyens">
+    <div class="container">
+      <p class="eyebrow">Nos moyens</p>
+      <h2>Une équipe et un équipement dédiés</h2>
+      <div class="two-col">
+        <div>
+          <h3>Moyens humains</h3>
+          <ul class="check-list">
+            <li>Direction générale</li>
+            <li>Consultants formateurs QHSE et énergie</li>
+            <li>Techniciens et ingénieurs mobilisables en assistance technique</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Moyens matériels</h3>
+          <p>Matériel de mesure, de contrôle et d’installation de marques reconnues.</p>
+          <ul class="logo-row">{equipment.map((e) => <li><Image src={logo('equipment', e.logo)} alt={e.name} width={140} densities={[1, 2]} /></li>)}</ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="references">
+    <div class="container">
+      <p class="eyebrow">Références</p>
+      <h2>Ils nous ont fait confiance</h2>
+      <ul class="logo-row logo-row--big">{clients.map((c) => <li><Image src={logo('clients', c.logo)} alt={c.name} width={200} densities={[1, 2]} /></li>)}</ul>
+      <h3 class="partners-title">Nos partenaires fabricants</h3>
+      <ul class="partners">
+        {partners.map((p) => (
+          <li><Image src={logo('partners', p.logo)} alt={p.name} width={150} densities={[1, 2]} /><span><strong>{p.name}</strong>{p.role}</span></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+  <CtaBand />
+</Base>
+<style>
+  .subnav { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+  .subnav a { padding: 0.4rem 0.85rem; border: 1px solid var(--line); background: #fff; border-radius: 999px; text-decoration: none; color: var(--ink); font-weight: 600; font-size: 0.95rem; }
+  .narrow { max-width: 860px; }
+  .signature { font-weight: 700; color: var(--ink); }
+  .timeline { list-style: none; padding: 0; margin: 1.5rem 0 0; border-left: 3px solid var(--line); }
+  .timeline li { position: relative; padding: 0 0 1.5rem 1.75rem; }
+  .timeline li::before { content: ''; position: absolute; left: -9px; top: 0.35rem; width: 15px; height: 15px; border-radius: 50%; background: var(--brand); border: 3px solid var(--paper-2); }
+  .timeline__year { font: 800 var(--step-1)/1 var(--f-display); color: var(--ink); }
+  .timeline p { margin: 0.35rem 0 0; }
+  .accred { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); }
+  .accred li { display: flex; gap: 0.75rem; align-items: flex-start; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 1rem; color: var(--ink); font-weight: 600; line-height: 1.35; }
+  .accred small { display: block; color: var(--brand); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.75rem; margin-bottom: 0.2rem; }
+  .accred :global(svg) { width: 22px; height: 22px; flex: none; color: var(--brand); }
+  .two-col { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); }
+  .logo-row { list-style: none; padding: 0; margin: 1rem 0 0; display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
+  .logo-row li { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); display: grid; place-items: center; padding: 0.6rem; aspect-ratio: 16 / 9; }
+  .logo-row :global(img) { max-height: 100%; width: auto; object-fit: contain; }
+  .logo-row--big { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+  .partners-title { margin-top: 2.5rem; }
+  .partners { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); }
+  .partners li { display: flex; gap: 1rem; align-items: center; border: 1px solid var(--line); border-radius: var(--radius); padding: 0.75rem 1rem; }
+  .partners :global(img) { width: 90px; height: 50px; object-fit: contain; flex: none; }
+  .partners strong { display: block; color: var(--ink); }
+  .partners span { color: var(--muted); font-size: 0.95rem; line-height: 1.35; }
+</style>

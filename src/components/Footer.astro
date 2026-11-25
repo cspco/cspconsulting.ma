@@ -1,0 +1,65 @@
+---
+import Logo from './Logo.astro';
+import Icon from './Icon.astro';
+import { site, nav } from '../data/site';
+import { expertises } from '../data/expertises';
+import { categories } from '../data/catalog';
+import { url } from '../lib/url';
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="container footer__grid">
+    <div class="footer__brand">
+      <Logo width={170} />
+      <p>Ingénierie et conseil QHSE à Tanger depuis {site.founded}. Nous intervenons au Maroc et en Afrique de l’Ouest.</p>
+      <a class="btn btn--cta" href={url('/devis')}>Demander un devis</a>
+    </div>
+    <div>
+      <h2 class="footer__title">Expertises</h2>
+      <ul>{expertises.map((e) => <li><a href={url(`/expertises/${e.slug}`)}>{e.short}</a></li>)}</ul>
+    </div>
+    <div>
+      <h2 class="footer__title">Produits antichute</h2>
+      <ul>{categories.map((c) => <li><a href={url(`/produits/${c.slug}`)}>{c.title}</a></li>)}</ul>
+      <h2 class="footer__title">Le cabinet</h2>
+      <ul>{nav.filter((n) => ['/regwatch', '/a-propos', '/contact'].includes(n.href)).map((n) => <li><a href={url(n.href)}>{n.label}</a></li>)}</ul>
+    </div>
+    <div>
+      <h2 class="footer__title">Contact</h2>
+      <address>
+        <p class="footer__line"><Icon name="map-pin" /><span>{site.address.lines.map((l) => <>{l}<br /></>)}{site.address.postalCode} {site.address.city}, {site.address.country}</span></p>
+        <p class="footer__line"><Icon name="phone" /><a href={site.phone.href}>{site.phone.display}</a></p>
+        <p class="footer__line"><Icon name="mail" /><a href={`mailto:${site.email}`}>{site.email}</a></p>
+        <p class="footer__line"><Icon name="clock" /><span>{site.hours}</span></p>
+      </address>
+    </div>
+  </div>
+  <div class="container footer__bottom">
+    <span>© {year} {site.name}. Tous droits réservés.</span>
+    <span class="footer__legal">
+      <a href={url('/mentions-legales')}>Mentions légales</a>
+      <a href={url('/politique-de-confidentialite')}>Politique de confidentialité</a>
+      {site.social.facebook && <a href={site.social.facebook} rel="noopener">Facebook</a>}
+    </span>
+  </div>
+</footer>
+
+<style>
+  .site-footer { background: var(--paper-2); border-top: 1px solid var(--line); margin-top: auto; font-size: 0.98rem; }
+  .footer__grid { display: grid; gap: 2rem; grid-template-columns: 1.4fr 1fr 1fr 1.3fr; padding-block: 3.5rem 2.5rem; }
+  @media (max-width: 900px) { .footer__grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .footer__grid { grid-template-columns: 1fr; } }
+  .footer__brand :global(img) { background: #fff; padding: 6px 8px; border-radius: 4px; }
+  .footer__brand p { margin: 1rem 0 1.25rem; color: var(--muted); }
+  .footer__title { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 0 0 0.75rem; }
+  .footer__title:not(:first-child) { margin-top: 1.5rem; }
+  ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.4rem; }
+  ul a, address a { color: var(--ink); text-decoration: none; }
+  ul a:hover, address a:hover { color: var(--brand); text-decoration: underline; }
+  address { font-style: normal; }
+  .footer__line { display: flex; gap: 0.6rem; margin: 0 0 0.7rem; }
+  .footer__line :global(svg) { width: 18px; height: 18px; flex: none; margin-top: 0.2rem; color: var(--brand); }
+  .footer__bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.75rem; padding-block: 1.25rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.9rem; }
+  .footer__legal { display: flex; flex-wrap: wrap; gap: 1.25rem; }
+  .footer__legal a { color: var(--muted); }
+</style>

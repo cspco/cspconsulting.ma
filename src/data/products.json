@@ -1,0 +1,952 @@
+[
+  {
+    "slug": "msa-v-edge",
+    "name": "V-EDGE – antichute à rappel automatique (bord vif)",
+    "category": "protection-individuelle",
+    "subcategory": "Antichutes à rappel automatique",
+    "brand": "msa",
+    "description": "La SRL V-EDGE de MSA est conçue pour être utilisée dans le cadre d'applications horizontales, aériennes et avec bord vif, ce qui permet de sélectionner l'équipement sans se baser sur de simples suppositions.",
+    "specs": [
+      {
+        "label": "Norme",
+        "value": "EN 360:2002"
+      },
+      {
+        "label": "Longueur",
+        "value": "6 m, 10 m ou 15 m"
+      },
+      {
+        "label": "Type de longe (6 m)",
+        "value": "câble en acier galvanisé de Ø 5,5 mm"
+      },
+      {
+        "label": "Type de longe (10 m et 15 m)",
+        "value": "câble en acier galvanisé de Ø 5 mm"
+      }
+    ],
+    "image": "msa-v-edge.jpg",
+    "legacyId": 26
+  },
+  {
+    "slug": "msa-v-tec",
+    "name": "V-TEC – antichute à rappel automatique à câble",
+    "category": "protection-individuelle",
+    "subcategory": "Antichutes à rappel automatique",
+    "brand": "msa",
+    "description": "Les antichutes à rappel automatique à câble V-TEC sont conçues de sorte à former un ensemble complet entre le harnais et l'ancrage.",
+    "specs": [
+      {
+        "label": "Longueur",
+        "value": "6 m, 10 m, 15 m ou 30 m"
+      },
+      {
+        "label": "Plage de poids",
+        "value": "60 - 140 kg (outils compris)"
+      },
+      {
+        "label": "Type de longe",
+        "value": "Câble en acier inoxydable ou galvanisé de Ø 5 mm (7x19)"
+      },
+      {
+        "label": "Distance d’arrêt maximale",
+        "value": "2 m"
+      }
+    ],
+    "image": "msa-v-tec.jpg",
+    "legacyId": 29
+  },
+  {
+    "slug": "olympe-cable-synthetique-18-m",
+    "name": "OLYMPE – antichute à rappel automatique, câble synthétique 18 m",
+    "category": "protection-individuelle",
+    "subcategory": "Antichutes à rappel automatique",
+    "brand": "kratos",
+    "description": "OLYMPE câble synthétique, antichute à rappel automatique 18 m",
+    "specs": [
+      {
+        "label": "Référence",
+        "value": "FA2040020R"
+      },
+      {
+        "label": "Poids maxi utilisateur (utilisation verticale)",
+        "value": "140 kg"
+      },
+      {
+        "label": "Norme",
+        "value": "EN360:2002"
+      },
+      {
+        "label": "Poids",
+        "value": "7,25 kg"
+      }
+    ],
+    "image": "olympe-cable-synthetique-18-m.jpg",
+    "legacyId": 31
+  },
+  {
+    "slug": "olympe-cable-inox-30-m-vertical",
+    "name": "OLYMPE – antichute à rappel automatique, câble inox 30 m (usage vertical)",
+    "category": "protection-individuelle",
+    "subcategory": "Antichutes à rappel automatique",
+    "brand": "kratos",
+    "description": "Olympe câble inox, antichute à rappel automatique 30 m, pour utilisation verticale seulement.",
+    "specs": [
+      {
+        "label": "Référence",
+        "value": "FA2040030S"
+      },
+      {
+        "label": "Poids maxi utilisateur (utilisation verticale)",
+        "value": "140 kg"
+      },
+      {
+        "label": "Poids",
+        "value": "12,59 kg"
+      }
+    ],
+    "image": "olympe-cable-inox-30-m-vertical.jpg",
+    "legacyId": 32
+  },
+  {
+    "slug": "antichute-rappel-automatique-carter-plastique-25-m",
+    "name": "Antichute à rappel automatique, carter plastique, câble galvanisé 25 m",
+    "category": "protection-individuelle",
+    "subcategory": "Antichutes à rappel automatique",
+    "brand": "kratos",
+    "description": "Antichute à rappel automatique avec carter plastique et câble acier galvanisé longueur 25 mètres.",
+    "specs": [
+      {
+        "label": "Longueur",
+        "value": "25 m"
+      },
+      {
+        "label": "Poids",
+        "value": "12,32 kg"
+      },
+      {
+        "label": "Diamètre câble",
+        "value": "4,8 mm"
+      },
+      {
+        "label": "Référence",
+        "value": "FA2040025"
+      },
+      {
+        "label": "Poids maxi utilisateur (utilisation verticale)",
+        "value": "140 kg"
+      }
+    ],
+    "image": "antichute-rappel-automatique-carter-plastique-25-m.jpg",
+    "legacyId": 33
+  },
+  {
+    "slug": "olympe-cable-inox-30-m-treuil",
+    "name": "OLYMPE – antichute à rappel automatique, câble inox 30 m, treuil de sauvetage intégré",
+    "category": "protection-individuelle",
+    "subcategory": "Antichutes à rappel automatique",
+    "brand": "kratos",
+    "description": "OLYMPE câble Inox, antichute à rappel automatique 30 m avec treuil de sauvetage intégré.",
+    "specs": [
+      {
+        "label": "Référence",
+        "value": "FA2040130S"
+      },
+      {
+        "label": "Poids",
+        "value": "14,80 kg"
+      },
+      {
+        "label": "Conformité",
+        "value": "EN 360:2002, EN1496:2017 classe B, Directive ATEX 2014/34/UE"
+      },
+      {
+        "label": "Poids maxi utilisateur (utilisation verticale)",
+        "value": "140 kg"
+      }
+    ],
+    "image": "olympe-cable-inox-30-m-treuil.jpg",
+    "legacyId": 34
+  },
+  {
+    "slug": "olympe-carter-aluminium-20-m",
+    "name": "OLYMPE – antichute à rappel automatique, carter aluminium 20 m",
+    "category": "protection-individuelle",
+    "subcategory": "Antichutes à rappel automatique",
+    "brand": "kratos",
+    "description": "Antichute à rappel automatique avec carter aluminium et câble acier galvanisé longueur 20 mètres.",
+    "specs": [
+      {
+        "label": "Longueur",
+        "value": "20 m"
+      },
+      {
+        "label": "Poids",
+        "value": "8,10 kg"
+      },
+      {
+        "label": "Diamètre câble",
+        "value": "4,5 mm"
+      },
+      {
+        "label": "Référence",
+        "value": "FA2060020"
+      },
+      {
+        "label": "Poids maxi utilisateur (utilisation verticale)",
+        "value": "140 kg"
+      },
+      {
+        "label": "Protection",
+        "value": "ATEX"
+      }
+    ],
+    "image": "olympe-carter-aluminium-20-m.jpg",
+    "legacyId": 35
+  },
+  {
+    "slug": "olympe-carter-aluminium-15-m",
+    "name": "OLYMPE – antichute à rappel automatique, carter aluminium 15 m",
+    "category": "protection-individuelle",
+    "subcategory": "Antichutes à rappel automatique",
+    "brand": "kratos",
+    "description": "OLYMPE, Antichute à rappel automatique avec carter aluminium et câble acier galvanisé longueur 15 mètres.",
+    "specs": [
+      {
+        "label": "Longueur",
+        "value": "15 m"
+      },
+      {
+        "label": "Poids",
+        "value": "7,4 kg"
+      },
+      {
+        "label": "Diamètre câble",
+        "value": "4,5 mm"
+      },
+      {
+        "label": "Référence",
+        "value": "FA2060015"
+      },
+      {
+        "label": "Poids maxi utilisateur (utilisation verticale)",
+        "value": "140 kg"
+      },
+      {
+        "label": "Protection",
+        "value": "ATEX"
+      }
+    ],
+    "image": "olympe-carter-aluminium-15-m.jpg",
+    "legacyId": 36
+  },
+  {
+    "slug": "olympe-carter-aluminium-10-m",
+    "name": "OLYMPE – antichute à rappel automatique, carter aluminium 10 m",
+    "category": "protection-individuelle",
+    "subcategory": "Antichutes à rappel automatique",
+    "brand": "kratos",
+    "description": "Antichute à rappel automatique avec carter aluminium et câble acier galvanisé longueur 10 mètres.",
+    "specs": [
+      {
+        "label": "Longueur",
+        "value": "10 m"
+      },
+      {
+        "label": "Poids",
+        "value": "4,88 kg"
+      },
+      {
+        "label": "Diamètre câble",
+        "value": "4,5 mm"
+      },
+      {
+        "label": "Référence",
+        "value": "FA2060010"
+      },
+      {
+        "label": "Poids maxi utilisateur (utilisation verticale)",
+        "value": "140 kg"
+      },
+      {
+        "label": "Protection",
+        "value": "ATEX"
+      }
+    ],
+    "image": "olympe-carter-aluminium-10-m.jpg",
+    "legacyId": 38
+  },
+  {
+    "slug": "helixon-s-3-50-m",
+    "name": "HELIXON-S – antichute à rappel automatique, câble 3,50 m",
+    "category": "protection-individuelle",
+    "subcategory": "Antichutes à rappel automatique",
+    "brand": "kratos",
+    "description": "HELIXON-S câble, antichute à rappel automatique 3,50 m, pour utilisation horizontale et verticale.",
+    "specs": [
+      {
+        "label": "Poids",
+        "value": "3,13 kg"
+      },
+      {
+        "label": "Référence",
+        "value": "FA2040203"
+      },
+      {
+        "label": "Poids maxi utilisateur (utilisation horizontale)",
+        "value": "140 kg"
+      },
+      {
+        "label": "Poids maxi utilisateur (utilisation verticale)",
+        "value": "140 kg"
+      },
+      {
+        "label": "Conformité",
+        "value": "EN 360:2002, VG11.060"
+      }
+    ],
+    "image": "helixon-s-3-50-m.jpg",
+    "legacyId": 39
+  },
+  {
+    "slug": "helixon-10-m-vertical",
+    "name": "HELIXON – antichute à rappel automatique, câble 10 m (usage vertical)",
+    "category": "protection-individuelle",
+    "subcategory": "Antichutes à rappel automatique",
+    "brand": "kratos",
+    "description": "HELIXON câble, antichute à rappel automatique 10 m, pour utilisation verticale seulement.",
+    "specs": [
+      {
+        "label": "Poids",
+        "value": "4,27 kg"
+      },
+      {
+        "label": "Référence",
+        "value": "FA2040210B"
+      },
+      {
+        "label": "Poids maxi utilisateur (utilisation verticale)",
+        "value": "140 kg"
+      },
+      {
+        "label": "Protection",
+        "value": "ATEX"
+      }
+    ],
+    "image": "helixon-10-m-vertical.jpg",
+    "legacyId": 40
+  },
+  {
+    "slug": "olympe-cable-galvanise-10-m-treuil",
+    "name": "OLYMPE – antichute à rappel automatique, câble galvanisé 10 m, treuil de sauvetage intégré",
+    "category": "protection-individuelle",
+    "subcategory": "Antichutes à rappel automatique",
+    "brand": "kratos",
+    "description": "OLYMPE câble acier galvanisé, antichute à rappel automatique 10 m avec treuil de sauvetage intégré.",
+    "specs": [
+      {
+        "label": "Poids",
+        "value": "7,40 kg"
+      },
+      {
+        "label": "Référence",
+        "value": "FA2040110"
+      },
+      {
+        "label": "Poids maxi utilisateur (utilisation verticale)",
+        "value": "140 kg"
+      },
+      {
+        "label": "Conformité",
+        "value": "EN 360:2002, EN1496:2017 classe B, Directive ATEX 2014/34/UE"
+      },
+      {
+        "label": "Diamètre câble",
+        "value": "4,5 mm"
+      }
+    ],
+    "image": "olympe-cable-galvanise-10-m-treuil.jpg",
+    "legacyId": 41
+  },
+  {
+    "slug": "kalypso-20-m-treuil",
+    "name": "KALYPSO – antichute à rappel automatique, câble galvanisé 20 m, treuil de sauvetage intégré",
+    "category": "protection-individuelle",
+    "subcategory": "Antichutes à rappel automatique",
+    "brand": "kratos",
+    "description": "KALYPSO - câble, Antichute à rappel automatique avec carter polymère, câble acier galvanisé lg. 20 m avec treuil de sauvetage intégré.",
+    "specs": [
+      {
+        "label": "Longueur",
+        "value": "20 m"
+      },
+      {
+        "label": "Diamètre câble",
+        "value": "4,5 mm"
+      },
+      {
+        "label": "Poids",
+        "value": "9,20 kg"
+      },
+      {
+        "label": "Conformité",
+        "value": "EN360:2002, EN1496:2017 classe B, Directive ATEX 2014/34/UE"
+      },
+      {
+        "label": "Référence",
+        "value": "FA2040120"
+      },
+      {
+        "label": "Poids maxi utilisateur (utilisation verticale)",
+        "value": "140 kg"
+      }
+    ],
+    "image": "kalypso-20-m-treuil.jpg",
+    "legacyId": 42
+  },
+  {
+    "slug": "t-line-inox-24-m",
+    "name": "T-LINE – antichute à rappel automatique à double câble inox, 24 m",
+    "category": "protection-individuelle",
+    "subcategory": "Antichutes à rappel automatique",
+    "brand": "kratos",
+    "description": "T-LINE, Antichute à rappel automatique à double câble de sécurité en acier INOX, lg. 24 m.",
+    "specs": [
+      {
+        "label": "Référence",
+        "value": "FA6003924S"
+      },
+      {
+        "label": "Poids maxi utilisateur",
+        "value": "100 Kg"
+      },
+      {
+        "label": "Conformité",
+        "value": "EN 360:2002"
+      },
+      {
+        "label": "Poids",
+        "value": "19,53 kg"
+      }
+    ],
+    "image": "t-line-inox-24-m.jpg",
+    "legacyId": 57
+  },
+  {
+    "slug": "t-line-acier-12-m",
+    "name": "T-LINE – antichute à rappel automatique à double câble acier, 12 m",
+    "category": "protection-individuelle",
+    "subcategory": "Antichutes à rappel automatique",
+    "brand": "kratos",
+    "description": "T-LINE, Antichute à rappel automatique à double câble de sécurité en acier, lg. 12 m.",
+    "specs": [
+      {
+        "label": "Référence",
+        "value": "FA6003912"
+      },
+      {
+        "label": "Poids maxi utilisateur (utilisation verticale)",
+        "value": "100 Kg"
+      },
+      {
+        "label": "Conformité",
+        "value": "EN 360:2002"
+      },
+      {
+        "label": "Poids",
+        "value": "18,13 kg"
+      }
+    ],
+    "image": "t-line-acier-12-m.jpg",
+    "legacyId": 58
+  },
+  {
+    "slug": "lift-res-q",
+    "name": "LIFT RES-Q – dispositif d’évacuation et de sauvetage",
+    "category": "protection-individuelle",
+    "subcategory": "Sauvetage et évacuation",
+    "brand": "kratos",
+    "description": "LIFT RES-Q, dispositif d'évacuation et de sauvetage.",
+    "specs": [
+      {
+        "label": "Référence",
+        "value": "FA7020100"
+      },
+      {
+        "label": "Existe en 2 longueurs",
+        "value": "20 m (FA 70 201 20), 40 m (FA 70 201 40)"
+      },
+      {
+        "label": "Vitesse de descente contrôlée",
+        "value": "1 m à 1,50 m / sec (selon le poids), dans la limite de 225 kg"
+      },
+      {
+        "label": "Utilisable avec une visseuse électrique",
+        "value": "Pour les remontées de grande hauteur"
+      },
+      {
+        "label": "Système de frein",
+        "value": "Automatique et redondant"
+      },
+      {
+        "label": "Maximum utilisateurs",
+        "value": "2 personnes - 225 kg"
+      }
+    ],
+    "image": "lift-res-q.jpg",
+    "legacyId": 78
+  },
+  {
+    "slug": "eva-lad-2",
+    "name": "EVA’LAD 2 – échelle de sauvetage en sangle, 6 m",
+    "category": "protection-individuelle",
+    "subcategory": "Sauvetage et évacuation",
+    "brand": "kratos",
+    "description": "EVA'LAD 2, Échelle de sauvetage en sangle, lg. 6 m, avec système de sécurisation intégré.",
+    "specs": [
+      {
+        "label": "Référence",
+        "value": "FA7002906R"
+      },
+      {
+        "label": "Longueur",
+        "value": "Échelle : 6 m; Corde du système de sécurisation : 7 m"
+      },
+      {
+        "label": "Poids",
+        "value": "3,88 kg"
+      },
+      {
+        "label": "Conformité",
+        "value": "PPE-R/11.115"
+      }
+    ],
+    "image": "eva-lad-2.jpg",
+    "legacyId": 80
+  },
+  {
+    "slug": "msa-walksafe",
+    "name": "WalkSafe – passerelle de toiture",
+    "category": "protection-collective",
+    "subcategory": "Passerelles de toiture",
+    "brand": "msa",
+    "description": "Les systèmes de passerelles WalkSafe se fixent aux toits pour créer une surface plane et antidérapante qui protège les travailleurs contre les risques de chute potentiels.",
+    "specs": [],
+    "image": "msa-walksafe.jpg",
+    "legacyId": 24
+  },
+  {
+    "slug": "filets-securite-en-1263",
+    "name": "Filets de sécurité antichute (EN 1263)",
+    "category": "protection-collective",
+    "subcategory": "Filets de sécurité",
+    "brand": "csp",
+    "description": "Installation sur rives de dalles ou planchers en porte-à-faux.",
+    "specs": [
+      {
+        "label": "Bras console de supportage",
+        "value": "Modèle protégé par certificat d’enregistrement de dessins et modèles industriels au nom de CSP CONSULTING - OMPIC Numéro d’enregistrement 27570 - Juin 2023"
+      },
+      {
+        "label": "Choix des matériaux et dimensionnement des fixations",
+        "value": "Après étude et à la demande"
+      },
+      {
+        "label": "Systèmes proposés selon la norme",
+        "value": "S ou T"
+      }
+    ],
+    "image": "filets-securite-en-1263.jpg",
+    "legacyId": 79
+  },
+  {
+    "slug": "latchways-lignes-de-vie-verticales",
+    "name": "Lignes de vie verticales Latchways",
+    "category": "dispositifs-ancrage",
+    "subcategory": "Ancrages verticaux",
+    "brand": "msa",
+    "description": "Les lignes de vie verticales Latchways peuvent être installées sur toute échelle nouvelle ou existante.",
+    "specs": [
+      {
+        "label": "Applications",
+        "value": "Travaux en hauteur"
+      },
+      {
+        "label": "Marchés",
+        "value": "Construction et Industrie générale"
+      }
+    ],
+    "image": "latchways-lignes-de-vie-verticales.jpg",
+    "legacyId": 13
+  },
+  {
+    "slug": "latchways-constant-force-post",
+    "name": "Lignes de vie sur potelets Latchways Constant Force®",
+    "category": "dispositifs-ancrage",
+    "subcategory": "Lignes de vie horizontales permanentes",
+    "brand": "msa",
+    "description": "Les systèmes de ligne de vie horizontale MSA Latchways Constant Force Post® sont fixés de manière permanente sur tout type de toiture, offrant une solution de bout en bout pour tous les types de travaux de maintenance en hauteur.",
+    "specs": [
+      {
+        "label": "Marchés",
+        "value": "Construction, Industrie générale, Applications minières, Pétrole et gaz et Services publics"
+      }
+    ],
+    "image": "latchways-constant-force-post.jpg",
+    "legacyId": 15
+  },
+  {
+    "slug": "latchways-lignes-de-vie-horizontales",
+    "name": "Lignes de vie horizontales Latchways®",
+    "category": "dispositifs-ancrage",
+    "subcategory": "Lignes de vie horizontales permanentes",
+    "brand": "msa",
+    "description": "La gamme MSA de systèmes de lignes de vie horizontales Latchways offre une protection permanente contre les chutes pour les travaux de maintenance dans tous les environnements industriels.",
+    "specs": [
+      {
+        "label": "Applications",
+        "value": "Soudage et Travailler en hauteur"
+      },
+      {
+        "label": "Norme",
+        "value": "EN 795:2012"
+      },
+      {
+        "label": "Cen/ts 16415",
+        "value": "2013"
+      }
+    ],
+    "image": "latchways-lignes-de-vie-horizontales.jpg",
+    "legacyId": 18
+  },
+  {
+    "slug": "latchways-ancrage-autoportant",
+    "name": "Ancrage autoportant Latchways Constant Force®",
+    "category": "dispositifs-ancrage",
+    "subcategory": "Ancrages autoportants",
+    "brand": "msa",
+    "description": "L'ancrage autoportant Latchways Constant Force offre une sécurité lorsqu'il est nécessaire d'accéder occasionnellement à des toits plats ou à des structures.",
+    "specs": [
+      {
+        "label": "Marchés",
+        "value": "Construction, Industrie générale, Applications minières, Pétrole et gaz et Services publics"
+      },
+      {
+        "label": "Applications",
+        "value": "Travaux en hauteur"
+      }
+    ],
+    "image": "latchways-ancrage-autoportant.jpg",
+    "legacyId": 21
+  },
+  {
+    "slug": "msa-wingrip",
+    "name": "WinGrip – ancrage portable à ventouse",
+    "category": "dispositifs-ancrage",
+    "subcategory": "Ancrages transportables (type B)",
+    "brand": "msa",
+    "description": "Pour les applications nécessitant une solution de protection contre les chutes portable sans avoir besoin de fixations mécaniques.",
+    "specs": [],
+    "image": "msa-wingrip.jpg",
+    "legacyId": 25
+  },
+  {
+    "slug": "ks9000",
+    "name": "KS9000 – antichute sur rail avec barreaux d’échelle intégrés",
+    "category": "dispositifs-ancrage",
+    "subcategory": "Ancrages verticaux",
+    "brand": "kratos",
+    "description": "Système antichute coulissant sur rail avec barreaux d'échelle intégrés, coulisseau sur roulettes, extension haute, extension basse, rail intermédiaire, support de fixation.",
+    "specs": [
+      {
+        "label": "Conformité",
+        "value": "EN 353-1:2014"
+      },
+      {
+        "label": "Référence",
+        "value": "KS9000"
+      }
+    ],
+    "image": "ks9000.jpg",
+    "legacyId": 53
+  },
+  {
+    "slug": "ks7000",
+    "name": "KS7000 – antichute coulissant sur câble rigide",
+    "category": "dispositifs-ancrage",
+    "subcategory": "Ancrages verticaux",
+    "brand": "kratos",
+    "description": "Système antichute coulissant sur câble rigide avec coulisseau pour câble inox, fixation haute ou basse, tendeur et dissipateur d'énergie.",
+    "specs": [
+      {
+        "label": "Conformité",
+        "value": "EN 353-1:2014, Directive ATEX 2014/34/UE"
+      },
+      {
+        "label": "Matière",
+        "value": "Inox"
+      },
+      {
+        "label": "Référence",
+        "value": "KS7000"
+      }
+    ],
+    "image": "ks7000.jpg",
+    "legacyId": 55
+  },
+  {
+    "slug": "eco-line",
+    "name": "ECO LINE – ligne de vie temporaire horizontale, 2 utilisateurs",
+    "category": "dispositifs-ancrage",
+    "subcategory": "Ancrages transportables (type B)",
+    "brand": "kratos",
+    "description": "ECO LINE - Ligne de vie temporaire avec longueur réglable de 5 à 20 mètres.",
+    "specs": [
+      {
+        "label": "Référence",
+        "value": "FA6000700"
+      },
+      {
+        "label": "Matière",
+        "value": "Sangle Polyester"
+      },
+      {
+        "label": "Taille",
+        "value": "Longueur réglable de 2 à 20 m"
+      }
+    ],
+    "image": "eco-line.jpg",
+    "legacyId": 56
+  },
+  {
+    "slug": "cross-line-2",
+    "name": "CROSS LINE 2 – ligne de vie temporaire horizontale 45 m",
+    "category": "dispositifs-ancrage",
+    "subcategory": "Ancrages transportables (type B)",
+    "brand": "kratos",
+    "description": "CROSS LINE 2 - Ligne de vie temporaire horizontale 45 m pour 1 à 4 utilisateurs, avec 4 navettes.",
+    "specs": [
+      {
+        "label": "Référence",
+        "value": "FA6000704"
+      },
+      {
+        "label": "Longueur totale disponible",
+        "value": "45 m"
+      },
+      {
+        "label": "Longueur minimum d utilisation",
+        "value": "5 m"
+      },
+      {
+        "label": "Poids",
+        "value": "14,11 kg"
+      }
+    ],
+    "image": "cross-line-2.jpg",
+    "legacyId": 59
+  },
+  {
+    "slug": "ligne-de-vie-temporaire-25-m-4-anneaux",
+    "name": "Ligne de vie temporaire horizontale 25 m, 4 anneaux",
+    "category": "dispositifs-ancrage",
+    "subcategory": "Ancrages transportables (type B)",
+    "brand": "kratos",
+    "description": "Ligne de vie temporaire horizontale pour 4 utilisateurs, avec 4 anneaux.",
+    "specs": [
+      {
+        "label": "Référence",
+        "value": "FA6000701"
+      },
+      {
+        "label": "Longueur totale disponible",
+        "value": "25 m"
+      },
+      {
+        "label": "Longueur minimum d utilisation",
+        "value": "5 m"
+      },
+      {
+        "label": "Poids",
+        "value": "11,64 kg"
+      }
+    ],
+    "image": "ligne-de-vie-temporaire-25-m-4-anneaux.jpg",
+    "legacyId": 60
+  },
+  {
+    "slug": "ancrage-mobile-poutre-dielectrique",
+    "name": "Point d’ancrage mobile sur roulettes pour poutre métallique (diélectrique)",
+    "category": "dispositifs-ancrage",
+    "subcategory": "Ancrages transportables (type B)",
+    "brand": "kratos",
+    "description": "Point d’ancrage mobile sur roulettes pour poutre métallique - version diélectrique.",
+    "specs": [
+      {
+        "label": "Référence",
+        "value": "FA6000804"
+      },
+      {
+        "label": "Conformité",
+        "value": "EN795:2012 Type B"
+      },
+      {
+        "label": "Poids",
+        "value": "3,70 kg"
+      },
+      {
+        "label": "Résistance diélectrique maxi",
+        "value": "30 kV"
+      },
+      {
+        "label": "Résistance à la rupture",
+        "value": "23 kN"
+      }
+    ],
+    "image": "ancrage-mobile-poutre-dielectrique.jpg",
+    "legacyId": 62
+  },
+  {
+    "slug": "trepied-double-poulie-2-15-m",
+    "name": "Trépied avec double poulie, hauteur max. 2,15 m",
+    "category": "dispositifs-ancrage",
+    "subcategory": "Ancrages transportables (type B)",
+    "brand": "kratos",
+    "description": "Trépied avec double poulie sur tête, hauteur maxi 2,15 m.",
+    "specs": [
+      {
+        "label": "Référence",
+        "value": "FA6010100"
+      },
+      {
+        "label": "Conformité",
+        "value": "EN795:2012 Type B"
+      },
+      {
+        "label": "Matière",
+        "value": "Aluminium"
+      },
+      {
+        "label": "Protection",
+        "value": "ATEX"
+      },
+      {
+        "label": "Poids",
+        "value": "14,6 kg"
+      }
+    ],
+    "image": "trepied-double-poulie-2-15-m.jpg",
+    "legacyId": 64
+  },
+  {
+    "slug": "multisafeway",
+    "name": "MULTISAFEWAY – potence pour espaces confinés et façades",
+    "category": "dispositifs-ancrage",
+    "subcategory": "Ancrages transportables (type B)",
+    "brand": "kratos",
+    "description": "Potence pour accès en espaces confinés, travaux en façade.",
+    "specs": [
+      {
+        "label": "Référence",
+        "value": "FA6002200"
+      },
+      {
+        "label": "Matière",
+        "value": "INOX"
+      },
+      {
+        "label": "Poids",
+        "value": "34,87 kg"
+      },
+      {
+        "label": "Utilisable en atmosphère atex",
+        "value": "Zone 1"
+      }
+    ],
+    "image": "multisafeway.jpg",
+    "legacyId": 65
+  },
+  {
+    "slug": "msa-xtirpa-manhole-guard",
+    "name": "XTIRPA Manhole Guard – protection de trou d’homme",
+    "category": "dispositifs-ancrage",
+    "subcategory": "Ancrages transportables (type B)",
+    "brand": "msa",
+    "description": "Les systèmes de protection de trou d'homme sont des connecteurs d'ancrage portables utilisés pour l'entrée verticale dans des espaces confinés.",
+    "specs": [
+      {
+        "label": "Marchés",
+        "value": "Construction, Industrie générale, Applications minières, Pétrole et gaz et Services publics"
+      }
+    ],
+    "image": "msa-xtirpa-manhole-guard.jpg",
+    "legacyId": 69
+  },
+  {
+    "slug": "msa-xtirpa-adapter-base",
+    "name": "XTIRPA Adapter Base – base d’ancrage fixe",
+    "category": "dispositifs-ancrage",
+    "subcategory": "Ancrages transportables (type B)",
+    "brand": "msa",
+    "description": "Les systèmes de base d'adaptateur sont des connecteurs d'ancrage fixes utilisés pour l'entrée verticale dans des espaces confinés. La base adaptateur est fixée de manière permanente à une structure existante.",
+    "specs": [
+      {
+        "label": "Marchés",
+        "value": "Construction, Industrie générale, Applications minières, Pétrole et gaz et Services publics"
+      }
+    ],
+    "image": "msa-xtirpa-adapter-base.jpg",
+    "legacyId": 70
+  },
+  {
+    "slug": "msa-xtirpa-manhole-collar",
+    "name": "XTIRPA Manhole Collar – collier de trou d’homme",
+    "category": "dispositifs-ancrage",
+    "subcategory": "Ancrages transportables (type B)",
+    "brand": "msa",
+    "description": "Les systèmes Manhole collar System sont des connecteurs d'ancrage portables utilisés pour l'entrée verticale dans des espaces confinés. Le collier de trou d'homme fournit une base d'adaptateur en s'insérant dans une ouverture de trou d'homme. Ce système est conçu pour une installation fréquente d'équipements dans des espaces confinés sur des ouvertures de taille similaire.",
+    "specs": [
+      {
+        "label": "Marchés",
+        "value": "Pétrole et gaz"
+      }
+    ],
+    "image": "msa-xtirpa-manhole-collar.jpg",
+    "legacyId": 71
+  },
+  {
+    "slug": "msa-xtirpa-counter-weight",
+    "name": "XTIRPA Counter Weight – système à contrepoids",
+    "category": "dispositifs-ancrage",
+    "subcategory": "Ancrages transportables (type B)",
+    "brand": "msa",
+    "description": "Les systèmes de contrepoids sont des connecteurs d'ancrage portables utilisés pour l'entrée verticale dans des espaces confinés. Le système de contrepoids doit être utilisé avec la base de contrepoids pour contrebalancer. Le système de contrepoids est idéal pour le mouvement et l'accès entre différents points d'entrée dans des espaces confinés dans la même zone.",
+    "specs": [
+      {
+        "label": "Marchés",
+        "value": "Construction, Industrie générale, Applications minières, Pétrole et gaz et Services publics"
+      }
+    ],
+    "image": "msa-xtirpa-counter-weight.jpg",
+    "legacyId": 72
+  },
+  {
+    "slug": "msa-beam-grip",
+    "name": "Workman FP Stryder – ancrage pour poutre en I",
+    "category": "dispositifs-ancrage",
+    "subcategory": "Ancrages transportables (type B)",
+    "brand": "msa",
+    "description": "Le Workman FP Stryder est un composant de dispositif stop chute personnel qui sert de connecteur d'ancrage pour les poutres en I horizontales.",
+    "specs": [
+      {
+        "label": "Ansi/asse z359",
+        "value": "18-2017"
+      },
+      {
+        "label": "Norme",
+        "value": "EN 795:2012"
+      }
+    ],
+    "image": "msa-beam-grip.jpg",
+    "legacyId": 74
+  }
+]

@@ -1,0 +1,35 @@
+---
+import { Image } from 'astro:assets';
+import Breadcrumbs from './Breadcrumbs.astro';
+interface Props {
+  title: string;
+  eyebrow?: string;
+  lead?: string;
+  photo?: ImageMetadata;
+  crumbs?: { label: string; href?: string }[];
+}
+const { title, eyebrow, lead, photo, crumbs } = Astro.props;
+---
+<section class:list={['page-hero', { 'page-hero--photo': photo }]}>
+  {photo && <Image src={photo} alt="" class="page-hero__img" widths={[640, 1024, 1600]} sizes="100vw" loading="eager" fetchpriority="high" />}
+  <div class="container page-hero__inner">
+    {crumbs && <Breadcrumbs items={crumbs} />}
+    {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+    <h1>{title}</h1>
+    {lead && <p class="page-hero__lead">{lead}</p>}
+    <slot />
+  </div>
+</section>
+
+<style>
+  .page-hero { position: relative; background: var(--paper-2); padding-block: clamp(2.5rem, 6vw, 4.5rem); overflow: hidden; }
+  .page-hero__inner { position: relative; }
+  .page-hero__lead { font-size: var(--step-1); color: var(--muted); max-width: 46rem; }
+  .page-hero--photo { background: var(--ink); color: #dfe6ec; padding-block: clamp(3.5rem, 9vw, 6.5rem); }
+  .page-hero--photo h1 { color: #fff; max-width: 22ch; }
+  .page-hero--photo .page-hero__lead { color: #dfe6ec; }
+  .page-hero--photo :global(.eyebrow) { color: #9fd0ee; }
+  .page-hero__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.32; max-width: none; }
+  .page-hero--photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgb(20 32 44 / 85%) 0%, rgb(20 32 44 / 35%) 100%); }
+  .page-hero--photo .page-hero__inner { z-index: 1; }
+</style>

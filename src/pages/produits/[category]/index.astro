@@ -1,0 +1,42 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHero from '../../../components/PageHero.astro';
+import ProductCard from '../../../components/ProductCard.astro';
+import CtaBand from '../../../components/CtaBand.astro';
+import { categories, productsIn, subcategoriesIn } from '../../../data/catalog';
+
+export function getStaticPaths() {
+  return categories.map((c) => ({ params: { category: c.slug }, props: { c } }));
+}
+const { c } = Astro.props as { c: (typeof categories)[number] };
+const subs = subcategoriesIn(c.slug);
+const slugify = (s: string) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+---
+<Base title={c.title} description={`${c.summary} Produits proposés et installés par CSP Consulting.`}>
+  <PageHero title={c.title} eyebrow="Produits antichute" lead={c.summary} crumbs={[{ label: 'Produits', href: '/produits' }, { label: c.title }]}>
+    {subs.length > 1 && (
+      <nav class="subnav" aria-label="Sous-catégories">
+        {subs.map((s) => <a href={`#${slugify(s)}`}>{s}</a>)}
+      </nav>
+    )}
+  </PageHero>
+  {subs.map((s) => {
+    const items = productsIn(c.slug).filter((p) => p.subcategory === s);
+    return (
+      <section class="section sub" id={slugify(s)}>
+        <div class="container">
+          <h2>{s} <span class="count">({items.length})</span></h2>
+          <div class="grid grid--4">{items.map((p) => <ProductCard p={p} />)}</div>
+        </div>
+      </section>
+    );
+  })}
+  <CtaBand title="Vous ne trouvez pas le produit recherché ?" text="Notre catalogue n’est pas exhaustif : décrivez votre besoin, nous vous proposons la solution adaptée." />
+</Base>
+<style>
+  .subnav { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+  .subnav a { padding: 0.4rem 0.85rem; border: 1px solid var(--line); background: #fff; border-radius: 999px; text-decoration: none; color: var(--ink); font-weight: 600; font-size: 0.95rem; }
+  .subnav a:hover { border-color: var(--brand); color: var(--brand); }
+  .sub + .sub { padding-top: 0; }
+  .count { color: var(--muted); font-weight: 400; font-size: 0.7em; }
+</style>

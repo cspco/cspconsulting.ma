@@ -1,0 +1,77 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import ProductCard from '../../../components/ProductCard.astro';
+import Icon from '../../../components/Icon.astro';
+import { allProducts, brands, getCategory, type Product } from '../../../data/catalog';
+import { url } from '../../../lib/url';
+
+export function getStaticPaths() {
+  return allProducts.map((p) => ({ params: { category: p.category, slug: p.slug }, props: { p } }));
+}
+const { p } = Astro.props as { p: Product };
+const cat = getCategory(p.category)!;
+const imgs = import.meta.glob<{ default: ImageMetadata }>('../../../assets/products/*.jpg', { eager: true });
+const img = imgs[`../../../assets/products/${p.image}`].default;
+const similar = allProducts.filter((o) => o.subcategory === p.subcategory && o.slug !== p.slug).slice(0, 4);
+const brand = brands[p.brand] ?? p.brand;
+---
+<Base title={p.name} description={`${p.description} ${brand}, proposé par CSP Consulting.`.slice(0, 300)} image={img.src}>
+  <section class="section product">
+    <div class="container">
+      <Breadcrumbs items={[{ label: 'Produits', href: '/produits' }, { label: cat.title, href: `/produits/${cat.slug}` }, { label: p.name }]} />
+      <div class="product__grid">
+        <figure class="product__img">
+          <Image src={img} alt={p.name} widths={[400, 800]} sizes="(max-width: 900px) 100vw, 520px" loading="eager" />
+          <figcaption>Photo : {brand}. Image fournie à titre d’illustration du produit commercialisé par CSP Consulting.</figcaption>
+        </figure>
+        <div>
+          <p class="eyebrow">{cat.title} · {p.subcategory}</p>
+          <h1>{p.name}</h1>
+          <p class="product__brand">Marque : <strong>{brand}</strong></p>
+          <p class="product__desc">{p.description}</p>
+          {p.specs.length > 0 && (
+            <>
+              <h2 class="specs-title">Caractéristiques</h2>
+              <dl class="specs">
+                {p.specs.map((s) => (
+                  <div>{s.label && <dt>{s.label}</dt>}<dd>{s.value}</dd></div>
+                ))}
+              </dl>
+            </>
+          )}
+          <div class="actions">
+            <a class="btn btn--cta" href={url(`/devis?produit=${encodeURIComponent(p.name)}`)}>Demander un devis pour ce produit</a>
+            <a class="btn btn--ghost" href={url(`/produits/${cat.slug}`)}><Icon name="arrow-right" />Tous les produits {cat.title.toLowerCase()}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {similar.length > 0 && (
+    <section class="section section--tint">
+      <div class="container">
+        <h2>Produits similaires</h2>
+        <div class="grid grid--4">{similar.map((s) => <ProductCard p={s} />)}</div>
+      </div>
+    </section>
+  )}
+</Base>
+<style>
+  .product h1 { font-size: var(--step-3); }
+  .product__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(1.5rem, 5vw, 3.5rem); align-items: start; }
+  @media (max-width: 900px) { .product__grid { grid-template-columns: 1fr; } }
+  .product__img { margin: 0; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 1.5rem; }
+  .product__img :global(img) { margin-inline: auto; max-height: 480px; width: auto; }
+  .product__img figcaption { font-size: 0.8rem; color: var(--muted); margin-top: 1rem; }
+  .product__brand { color: var(--muted); }
+  .product__desc { font-size: var(--step-1); color: var(--ink-2); }
+  .specs-title { font-size: var(--step-1); margin-top: 1.5rem; }
+  .specs { margin: 0 0 1.75rem; border-top: 1px solid var(--line); }
+  .specs div { display: grid; grid-template-columns: minmax(0, 14rem) minmax(0, 1fr); gap: 1rem; padding: 0.6rem 0; border-bottom: 1px solid var(--line); }
+  .specs dt { font-weight: 600; color: var(--ink); }
+  .specs dd { margin: 0; }
+  .specs div:not(:has(dt)) dd { grid-column: 1 / -1; }
+  @media (max-width: 500px) { .specs div { grid-template-columns: 1fr; gap: 0.15rem; } }
+</style>

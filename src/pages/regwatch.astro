@@ -1,0 +1,65 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import Icon from '../components/Icon.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { site } from '../data/site';
+import { url } from '../lib/url';
+import logo from '../assets/regwatch/logo.png';
+import dashboard from '../assets/regwatch/dashboard.jpg';
+import actions from '../assets/regwatch/actions.jpg';
+const features = [
+  'Solution digitale adaptée aux écrans web et mobiles.',
+  'Abonnement annuel à un espace client personnalisé.',
+  'Accès sécurisé et protection des données selon les normes et règlements applicables.',
+  'Respect de la confidentialité des données.',
+  'Notifications instantanées lors de nouvelles publications.',
+  'Suivi actualisé des actions et mise à jour du tableau de bord.',
+  'Possibilité d’intégrer d’autres référentiels à la base de données.',
+  'Possibilité de configuration multisite.',
+];
+---
+<Base title="RegWatch, veille réglementaire QHSE" description="RegWatch, la solution digitale de CSP Consulting pour la veille et l’évaluation de la conformité légale et réglementaire en santé, sécurité et environnement." image={dashboard.src}>
+  <PageHero title="Veille et évaluation de la conformité légale et réglementaire" eyebrow="RegWatch" crumbs={[{ label: 'RegWatch' }]}
+    lead="RegWatch rassemble les exigences légales qui s’appliquent à votre activité, mesure votre taux de conformité et vous aide à piloter les actions correctives.">
+    <div class="rw-hero">
+      <div class="actions">
+        <a class="btn btn--primary" href={site.regwatchUrl} rel="noopener">Accéder à RegWatch <Icon name="external-link" /></a>
+        <a class="btn btn--ghost" href={site.regwatchGuideUrl} rel="noopener"><Icon name="download" />Guide d’utilisation (PDF)</a>
+        <a class="btn btn--cta" href={url('/devis?besoin=RegWatch%20(veille%20r%C3%A9glementaire)')}>Demander une démonstration</a>
+      </div>
+      <Image src={logo} alt="Logo RegWatch" width={180} class="rw-logo" />
+    </div>
+  </PageHero>
+
+  <section class="section">
+    <div class="container">
+      <h2>Informations générales</h2>
+      <ul class="check-list features">{features.map((f) => <li>{f}</li>)}</ul>
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="container shots">
+      <figure>
+        <Image src={dashboard} alt="Tableau de bord général RegWatch pour une société de démonstration, thème santé et sécurité au travail : taux de conformité et graphique par famille d’exigences" widths={[600, 1000, 1600]} sizes="(max-width: 900px) 100vw, 560px" />
+        <figcaption><strong>Tableau de bord général</strong> : taux de conformité et répartition par famille d’exigences.</figcaption>
+      </figure>
+      <figure>
+        <Image src={actions} alt="Tableau de bord des actions RegWatch pour une société de démonstration : indicateurs de suivi et graphique d’avancement" widths={[600, 1000, 1600]} sizes="(max-width: 900px) 100vw, 560px" />
+        <figcaption><strong>Tableau de bord des actions</strong> : indicateurs de suivi et avancement des plans d’actions.</figcaption>
+      </figure>
+    </div>
+  </section>
+  <CtaBand title="Envie de voir RegWatch sur vos propres exigences ?" text="Nous vous présentons la solution et configurons un espace adapté à vos sites." />
+</Base>
+<style>
+  .rw-hero { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem; margin-top: 1rem; }
+  .rw-hero :global(.rw-logo) { background: #fff; padding: 0.75rem; border-radius: var(--radius); border: 1px solid var(--line); }
+  .features { grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 0.75rem 2rem; }
+  .shots { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); }
+  figure { margin: 0; }
+  figure :global(img) { border-radius: var(--radius); border: 1px solid var(--line); box-shadow: var(--shadow); }
+  figcaption { margin-top: 0.75rem; color: var(--muted); }
+</style>

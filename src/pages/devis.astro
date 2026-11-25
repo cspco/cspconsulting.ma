@@ -1,0 +1,32 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import { site } from '../data/site';
+---
+<Base title="Demander un devis" description="Demandez un devis à CSP Consulting pour un audit, une formation, une mission d’ingénierie ou une installation antichute.">
+  <PageHero title="Demander un devis" lead="Décrivez votre besoin en quelques lignes : nous revenons vers vous avec une proposition adaptée." crumbs={[{ label: 'Demander un devis' }]} />
+  <section class="section">
+    <div class="container devis">
+      <QuoteForm />
+      <aside class="devis__aside">
+        <h2>Vous préférez nous appeler ?</h2>
+        <p><a href={site.phone.href}>{site.phone.display}</a><br />{site.hours}</p>
+        <h2>Ce qui nous aide à vous répondre</h2>
+        <ul class="check-list">
+          <li>Le site ou le projet concerné et sa localisation</li>
+          <li>Vos délais</li>
+          <li>Pour une formation : le thème et le nombre de participants</li>
+          <li>Pour une installation antichute : les plans ou des photos de la zone</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+</Base>
+<style>
+  .devis { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 4rem); align-items: start; }
+  @media (max-width: 900px) { .devis { grid-template-columns: 1fr; } }
+  .devis__aside { background: var(--paper-2); border-radius: var(--radius); padding: 1.75rem; }
+  .devis__aside h2 { font-size: var(--step-1); }
+  .devis__aside h2:not(:first-child) { margin-top: 1.5rem; }
+</style>

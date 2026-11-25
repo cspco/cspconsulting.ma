@@ -1,0 +1,29 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import Icon from '../../components/Icon.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { expertises } from '../../data/expertises';
+import { url } from '../../lib/url';
+---
+<Base title="Nos expertises" description="Systèmes de management, audits de conformité, ingénierie, construction, prévention incendie, risques industriels et formations QHSE : les domaines d’intervention de CSP Consulting.">
+  <PageHero
+    title="Nos expertises"
+    lead="CSP Consulting intervient sur le marché de l’ingénierie et du conseil pour accompagner ses clients sur l’ensemble des volets qualité, santé, sécurité et environnement."
+    crumbs={[{ label: 'Expertises' }]}
+  />
+  <section class="section">
+    <div class="container grid grid--3">
+      {expertises.map((e) => (
+        <a class="card" href={url(`/expertises/${e.slug}`)}>
+          <span class="icon-badge"><Icon name={e.icon} /></span>
+          <h2 class="card__title">{e.title}</h2>
+          <p>{e.summary}</p>
+          <span class="card__more">En savoir plus <Icon name="arrow-right" /></span>
+        </a>
+      ))}
+    </div>
+  </section>
+  <CtaBand />
+</Base>
+<style>.card__title { font-size: var(--step-1); margin: 0; }</style>
